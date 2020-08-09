@@ -1,0 +1,28 @@
+{
+  "name": "@ayamejs/quotes",
+  "version": "0.1.0",
+  "description": "Quote parser for discord bots.",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayamejs/quotes.git"
+  },
+  "keywords": [
+    "quotes",
+    "split",
+    "parser",
+    "discord",
+    "bot",
+    "arguments",
+    "commands"
+  ],
+  "author": "PoLLeN <pollen@itsladybug.ml> (https://itsladybug.ml/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayamejs/quotes/issues"
+  },
+  "homepage": "https://github.com/ayamejs/quotes#readme"
+}
