@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Quote parser for discord bots.",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "eslint ."
   },

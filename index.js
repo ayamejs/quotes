@@ -1,11 +1,20 @@
 const { version } = require("./package.json");
 
+const escapeRegex = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+
 /**
  * Split the given input with quotes.
  * @param {String} line - A line of input.
+ * @param {String} [sep=" "] - Seperator character to split on.
  * @returns {Array<String>}
  */
-function parse(line) {
+function parse(line, sep = " ") {
+  // Type checks.
+  if(typeof line !== "string") throw new TypeError("Line must be a string.");
+  if(typeof sep !== "string") throw new TypeError("Seperator must be a string.");
+
+  if(sep.length > 1) throw new RangeError("Seperator must be a single character.");
+
   const args = [];
   let buf = "";
   let escaped = false;
@@ -33,11 +42,11 @@ function parse(line) {
       continue;
     }
 
-    if (/\s/.test(r)) {
+    if (new RegExp(escapeRegex(sep)).test(r)) {
       if(singleQuoted || doubleQuoted || iSingleQuoted || iDoubleQuoted) {
         buf += r;
       } else if(got) {
-        args.push(buf);
+        args.push(buf.trim());
         buf = "";
         got = false;
       }
@@ -81,7 +90,7 @@ function parse(line) {
     buf += r;
   }
 
-  if(got) args.push(buf);
+  if(got) args.push(buf.trim());
 
   if(escaped || singleQuoted || doubleQuoted || iSingleQuoted || iDoubleQuoted) {
     throw new Error("Unexpected quote or escape");
