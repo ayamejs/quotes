@@ -1,17 +1,17 @@
-# `@ayamejs/quotes`
+# `@ayame/quotes`
 Split an input with quotes.
 
 `hello "world" 'it works' “also supports iOS quotes”` -> `[ 'hello', 'world', 'it works', 'also supports iOS quotes' ]`
 
 ## Install
 ```sh
-$ npm install @ayamejs/quotes
+$ npm install @ayame/quotes
 ```
 TypeScript typings included.
 
 ## Usage
 ```js
-const quotes = require("@ayamejs/quotes");
+const quotes = require("@ayame/quotes");
 
 quotes.parse(input, seperator);
 ```
