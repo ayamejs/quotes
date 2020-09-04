@@ -1,5 +1,5 @@
 {
-  "name": "@ayamejs/quotes",
+  "name": "@ayame/quotes",
   "version": "0.2.0",
   "description": "Quote parser for discord bots.",
   "main": "index.js",
